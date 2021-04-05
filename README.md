@@ -9,7 +9,9 @@ for instance docker run -it -u root -v /home/zuz/Pulpit/ProjObj:/home/kprzystals
 Then app will be exposed on 11225 port:
 
 http://0.0.0.0:11225/artists
+
 http://0.0.0.0:11225/songs
+
 http://0.0.0.0:11225/studios
 
 
