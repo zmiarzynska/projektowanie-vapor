@@ -1,0 +1,132 @@
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Artyści:</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+<div class="container max-width">
+    <div class="row">
+     <form action="/artist/create" method="post">
+     <ul type="1">
+        #for(artist in artistList):
+            <li> <b>Artysta:</b> #(artist.first_name) #(artist.last_name) <b> Miasto: </b>  #(artist.city) <b> ID:</b> #(artist.id)</li>
+        #endfor
+    </ul> 
+    </form>
+    </div>
+</div>
+
+
+<!--form-->
+<section class="form" id="myForm">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1> Dodaj artystę</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/artist/create" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    <input type="text" class="form-control" name="first_name" placeholder="Enter first name of artist
+                                                                                           here">
+                    <input type="text" class="form-control" name="last_name" placeholder="Enter last name of artist
+                                                                                 here (optional in the future)">
+                    <input type="city" class="form-control" name="city" placeholder="Enter city here">
+                    <button type="submit" class="entryform submit">Dodaj</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Usuń artystę</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+#for(artist in artistList):
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/artist/delete/#(artist.id)" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    Artist ID 
+                    <input type="text" name="id" class="form-control" value="#(artist.id)" disabled>
+                    Imię
+                    <input type="text" name="first_name" class="form-control" value="#(artist.first_name)" disabled>
+                    Nazwisko
+                    <input type="text" name="last_name" class="form-control" value="#(artist.last_name)" disabled>
+                    Miasto
+                    <input type="text" name="city" class="form-control" value="#(artist.city)" disabled>
+                    <button type="submit" class="entryform submit">Usuń</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+#endfor
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Edytuj artystę</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+#for(artist in artistList):
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/artist/update/#(artist.id)" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    Artist ID 
+                    <input type="text" name="id" class="form-control" value="#(artist.id)" disabled>
+                    Imię
+                    <input type="text" name="first_name" class="form-control" value="#(artist.first_name)" >
+                    Nazwisko
+                    <input type="text" name="last_name" class="form-control" value="#(artist.last_name)" >
+                    Miasto
+                    <input type="text" name="city" class="form-control" value="#(artist.city)" >
+                    <button type="submit" class="entryform submit">Edytuj</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+#endfor

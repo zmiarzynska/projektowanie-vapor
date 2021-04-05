@@ -1,0 +1,122 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Studia nagraniowe:</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+<div class="container max-width">
+    <div class="row">
+     <form action="/studio/create" method="post">
+     <ul type="1">
+        #for(studio in studioList):
+            <li> <b>Nazwa firmy:</b> "#(studio.brand_name)"  <b> Miasto: </b>  #(studio.city) <b>ID studia:</b> #(studio.id)</li>
+        #endfor
+    </ul> 
+    </form>
+    </div>
+</div>
+
+
+<!--form-->
+<section class="form" id="myForm">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1> Dodaj studio</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/studio/create" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    <input type="text" class="form-control" name="brand_name" placeholder="Enter name of studio">
+                    <input type="text" class="form-control" name="city" placeholder="Enter city studio is placed">
+                    <button type="submit" class="entryform submit">Dodaj</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Usuń studio</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+#for(studio in studioList):
+<div class="container max-width">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/studio/delete/#(studio.id)" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    Studio ID 
+                    <input type="text" name="id" class="form-control" value="#(studio.id)" disabled>
+                    Nazwa studia
+                    <input type="text" name="title" class="form-control" value="#(studio.brand_name)" disabled>
+                    Miasto
+                    <input type="text" name="album" class="form-control" value="#(studio.city)" disabled>
+                    <button type="submit" class="entryform submit">Usuń</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+#endfor
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Edytuj studio</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+#for(studio in studioList):
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/studio/update/#(studio.id)" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    ID studia
+                    <input type="text" name="id" class="form-control" value="#(studio.id)" disabled>
+                    Nazwa studia
+                    <input type="text" name="brand_name" class="form-control" value="#(studio.brand_name)" >
+                    Miasto
+                    <input type="text" name="city" class="form-control" value="#(studio.city)" >
+                    <button type="submit" class="entryform submit">Edytuj</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+#endfor

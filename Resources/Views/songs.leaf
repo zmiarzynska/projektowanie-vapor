@@ -1,0 +1,131 @@
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Piosenki:</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+<div class="container max-width">
+    <div class="row">
+     <form action="/song/create" method="post">
+     <ul type="1">
+        #for(song in songList):
+            <li> <b>Tytuł:</b> "#(song.title)"  <b> Artysta: </b>  #(song.artist_id) <b> Album: </b>  #(song.album) <b> ID piosenki:</b> #(song.id)</li>
+        #endfor
+    </ul> 
+    </form>
+    </div>
+</div>
+
+
+<!--form-->
+<section class="form" id="myForm">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1> Dodaj piosenkę (konieczne ID artysty)</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/song/create" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    <input type="text" class="form-control" name="title" placeholder="Enter title of song
+                                                                                           here">
+                    <input type="text" class="form-control" name="artist_id" placeholder="Enter artist_id of song">
+                    <input type="text" class="form-control" name="album" placeholder="Enter album here">
+                    <button type="submit" class="entryform submit">Dodaj</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Usuń piosenkę</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+#for(song in songList):
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/song/delete/#(song.id)" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    Song ID 
+                    <input type="text" name="id" class="form-control" value="#(song.id)" disabled>
+                    Tytuł
+                    <input type="text" name="title" class="form-control" value="#(song.title)" disabled>
+                    Album
+                    <input type="text" name="album" class="form-control" value="#(song.album)" disabled>
+                    Artysta
+                    <input type="text" name="artist_id" class="form-control" value="#(song.artist_id)" disabled>
+                    <button type="submit" class="entryform submit">Usuń</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+#endfor
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="heading">
+                <h1>Edytuj artystę</h1>
+            </div>
+        </div> 
+    </div>
+</div>
+
+#for(song in songList):
+<div class="container max-width">
+    <div class="row">
+
+        <div class="col-md-12">
+            <form action="/song/update/#(song.id)" method="post">
+                <fieldset class="form-group">
+                    <!input name="input" type="hidden"/>
+                    ID piosenki 
+                    <input type="text" name="id" class="form-control" value="#(song.id)" disabled>
+                    Tytuł
+                    <input type="text" name="title" class="form-control" value="#(song.title)" >
+                    Album
+                    <input type="text" name="album" class="form-control" value="#(song.album)" >
+                    Artysta
+                    <input type="text" name="artist_id" class="form-control" value="#(song.artist_id)" >
+                    <button type="submit" class="entryform submit">Edytuj</button>
+                </fieldset>
+                
+            </form>
+        </div>
+    </div>
+</div>
+#endfor
